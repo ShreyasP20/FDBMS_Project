@@ -23,8 +23,6 @@ router.post('/login', function(request, response, next) {
             if(data[count].Password == user_password)
             {
               request.session.user_id = data[count].Username;
-
-
               response.redirect("/");
             }
             else
