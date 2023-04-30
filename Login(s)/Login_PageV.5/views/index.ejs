@@ -20,7 +20,7 @@
                 <div class="col-md-6">
                 <% if(session.user_id) { %>
 
-                    <h1>Hi User, Welcome</h1>
+                    <h1>Hi User, <%= session.user_id %></h1>
 
                     <a href="/logout" class="btn btn-primary">Logout</a>
 
