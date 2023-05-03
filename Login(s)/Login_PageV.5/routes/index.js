@@ -7,6 +7,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express', session : req.session });
 });
 
+
+
 router.post('/login', function(request, response, next) {
     var user_email_address =request.body.user_email_address; 
     var user_password = request.body.user_password;
@@ -19,7 +21,6 @@ router.post('/login', function(request, response, next) {
         {
           for (var count = 0; count < data.length ; count++)
           {
-
             if(data[count].Password == user_password)
             {
               request.session.user_id = data[count].Username;
