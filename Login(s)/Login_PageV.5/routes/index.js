@@ -21,6 +21,7 @@ router.post('/login', function(request, response, next) {
         {
           for (var count = 0; count < data.length ; count++)
           {
+
             if(data[count].Password == user_password)
             {
               request.session.user_id = data[count].Username;
