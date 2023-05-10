@@ -13,9 +13,9 @@ router.post('/login', function(req, res, next) {
   var user_password = req.body.user_password;
   if(user_username && user_password)
   {
-    query = `Select * from login where Username='${user_username}'`;
-    console.log(query);
-    database.query(query, function(err,data){
+    query1 = `Select * from login where Username='${user_username}'`;
+    console.log(query1);
+    database.query(query1, function(err,data){
       if(data.length > 0)
       {
         if(data[0].Password == user_password)
