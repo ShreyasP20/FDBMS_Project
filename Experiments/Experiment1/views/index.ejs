@@ -27,15 +27,15 @@
 
         <div class="form-box login">
             <h2>Login</h2>
-            <form action="#">
+            <form action="/login" method="post">
                 <div class="input-box">
                     <span class="icon"></span>
-                    <input type="text" required>
+                    <input type="text" name="user_username" required>
                     <label>UserName</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"></span>
-                    <input type="password" required>
+                    <input type="password" name="user_password" required>
                     <label>Password</label>
                 </div>
                 <div class="remember-forgot">
@@ -51,15 +51,15 @@
 
         <div class="form-box register">
             <h2>Registeration</h2>
-            <form action="#">
+            <form action="/register" method="post">
                 <div class="input-box">
                     <span class="icon"></span>
-                    <input type="text" required>
+                    <input type="text" name="new_username" required>
                     <label>UserName</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"></span>
-                    <input type="password" required>
+                    <input type="password" name="new_password" required>
                     <label>Password</label>
                 </div>
                 <div class="remember-forgot">
