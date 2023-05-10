@@ -42,8 +42,14 @@ router.post('/login', function(req, res, next) {
 router.post('/register', function(request,response,next){
   var username = request.body.new_username;
   var password = request.body.new_password;
+  var cpassword = request.body.cnew_password;
   if(username && password)
   {
+    if(password != cpassword)
+    {
+      response.send("Password Doesn't Match");
+      response.end();
+    }
     query1 = `Select * from login where username="${username}";` ;
     console.log(query1);
     database.query(query1,function(err,data){
