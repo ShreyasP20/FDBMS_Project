@@ -63,7 +63,7 @@ router.post('/register', function(request,response,next){
         database.query(querys, function(err,data){
           if(!err)
           {
-            response.send("Successfully registered!");
+            response.render('hello');
             response.end();
           }
           else
