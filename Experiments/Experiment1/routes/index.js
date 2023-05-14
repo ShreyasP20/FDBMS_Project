@@ -4,9 +4,25 @@ var router = express.Router();
 const { response } = require('../app');
 var database = require('../database');
 /* GET home page. */
+// router.get('/', function(req, res, next) {
+//   res.render('index', { title: 'Express', session:req.session });
+// });
+
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express', session:req.session });
+  querys = `Select * from login1;`;
+            database.query(querys, function(err,result){
+              if (err) throw err;
+              res.render('hello', {data:result})
+            });
 });
+
+router.get('/Display', function(req, res, next) {
+  const id = req.query.divId;
+  console.log(id);
+  console.log("HI");
+  res.render('index');
+});
+
 
 router.post('/login', function(req, res, next) {
   var user_username = req.body.user_username;
@@ -20,7 +36,12 @@ router.post('/login', function(req, res, next) {
       {
         if(data[0].Password == user_password)
         {
-          res.send("Successfully logged in");
+          querys = `Select * from login;`;
+            database.query(querys, function(err,result){
+              if (err) throw err;
+
+              res.render('hello', {data:result})
+            });
         }
         else
         {

@@ -12,6 +12,7 @@ router.get('/', function(req, res, next) {
 router.post('/login', function(request, response, next) {
     var user_email_address =request.body.user_email_address; 
     var user_password = request.body.user_password;
+    console.log(user_password);
     if(user_email_address && user_password)
     {
       query = `Select * from login where Username = "${user_email_address}"`;
