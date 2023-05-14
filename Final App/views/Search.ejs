@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form action="/Search_On" class="search-bar">
+            <input type="text" name="Search_name" placeholder="Recipe Name">
+            <button type="submit"><img src="images/search.png" alt=""></button>
+        </form>
+    </div>
+    <% if(session.data_exists) { %>
+    <table>
+        <% data.forEach(entry =>{ %>
+        <tr class = "clickable" id="div<%= entry.id %>">
+            <td><a href='/Display?divId=<%= entry.id %>'><%= entry.name %></a></td>
+            <td><%= entry.deta %></td>
+        </tr>
+    <% }) %>
+    </table>
+    <% } %>
+</body>
+</html>

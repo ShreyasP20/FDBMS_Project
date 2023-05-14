@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+<link rel="stylesheet" href="stylesheets/Schedule.css">
+
+
+<body>
+    <h1>Recipe User Schedule</h1>
+    <table>
+        <% data.forEach(entry =>{ %>
+        <tr class = "clickable" id="div<%= entry.id %>">
+            <td><a href='/Display?divId=<%= entry.id %>'><%= entry.name %></a></td>
+            <td><%= entry.deta %></td>
+        </tr>
+    <% }) %>
+    </table>
+    <script type="text/javascript" src="javascripts/script1.js"></script>
+
+</body>
+</html>
