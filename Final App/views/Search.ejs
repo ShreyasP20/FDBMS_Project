@@ -16,7 +16,7 @@
     <table>
         <% data.forEach(entry =>{ %>
         <tr class = "clickable" id="div<%= entry.id %>">
-            <td><a href='/Display?divId=<%= entry.id %>'><%= entry.First_name %></a></td>
+            <td><a href='/RecipeWebsite?divId=<%= entry.id %>'><%= entry.First_name %></a></td>
             <td><%= entry.age %></td>
         </tr>
         <% }) %>

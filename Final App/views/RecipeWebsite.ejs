@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset = "UTF-8" >
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Recipe's Website | Particular</title>
+
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="stylesheets/RecipeWebsite.css">
+
+    </head>
+    <body>
+        <header class="header">
+            <a href="#" class="logo">Recipe</a>
+            
+            <i class='bx bx-menu' id='menu-icon'></i>
+            <nav class="navbar">
+                <a href="/home" class="start">Home</a>
+                <a href="#about">Procedures</a>
+                <a href="#contact">Schedule</a>
+            </nav>
+
+        </header>
+        <% data.forEach(entry =>{ %>
+        <section class="home" id="home">
+            <div class="home-content">
+                <h3>You are cooking</h3>
+                <h1><Span><%= entry.RECIPE_NAME%> </Span></h1>
+                <h3><Span></Span></h3>
+            </div>
+
+            <div class="home-img">
+                <img src="images\RW1.jpeg" alt="">
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <div class="about-img">
+                <img src="" alt="">
+            </div>
+
+            <div class="about-content">
+                <h2 class="heading"><span> Procedures</span></h2>
+                <h3></h3>
+                <p><%= entry.PROCEDURE %></p>
+                <a href="#" class="btn">Chef ID</a>
+                <h3 class="heading"><span>Calories:<%= entry.CALORIE_COUNT %></span></h3>
+                <h3 class="heading"><span>Portion:<%= entry.PORTION %></span></h3>
+                <h3 class="heading"><span>Cooking Expertise:<%= entry.COOKING_EXPERTIZE %></span></h3>
+                <h3 class="heading"><span>Spice Level:<%= entry.Spice_Level %></span></h3>
+                <h3 class="heading"><span>Effort Time:<%= entry.Effort_Time%></span></h3>
+
+            </div>
+        </section>
+        <% }) %>
+
+
+
+        <section class="contact" id="contact">
+            <h2 class="heading">Schedule<span> Recipe</span></h2>
+
+            <form action="/Schedule" method="POST">
+                <div class="input-box">
+                    <input type="text" placeholder="Meal Type" name="MealType">
+                    <input type="Weekday" placeholder="Full Name" name="Weekday">
+                </div>
+
+                <div class="input-box">
+                    <input type="number" placeholder="Portion" name="Portion">
+                    <input type="date" placeholder="DATE" name="Date">
+                </div>
+                <textarea name="Allergy" id="" cols="30" rows="10" placeholder="Allergy "></textarea>
+                <input type="Submit" value="Schedule" class="btn">
+            </form>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-text">
+                <p>Thank You For Visiting</p>
+            </div>
+
+            <div class="footer-iconTop">
+                <a href="#home"><i class='bx bx-chevrons-up' ></i></a>
+            </div>
+        </footer>
+    </body>   
+</html>

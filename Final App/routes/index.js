@@ -50,7 +50,7 @@ router.post('/login', function(req, res, next) {
     res.end();
   }
 });
-  
+
 router.post('/register', function(request,response,next){
   var username = request.body.new_username;
   var password = request.body.new_password;
@@ -98,13 +98,12 @@ router.post('/register', function(request,response,next){
                 res.render('Schedule', {data:result})
               });
   });
-  
-  router.get('/Display', function(req, res, next) {
-    const id = req.query.divId;
-    console.log(id);
-    console.log("HI");
-    res.render('index');
+
+
+  router.get('/home', function(req,res,next){
+    res.render('home');
   });
+
 
   router.get('/Account', function(req, res, next) {
     userid=1;
