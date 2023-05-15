@@ -4,6 +4,7 @@ var router = express.Router();
 const { response } = require('../app');
 var database = require('../database');
 var userid;
+var R_ID;
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('login', { title: 'Express', session:req.session });
@@ -106,7 +107,6 @@ router.post('/register', function(request,response,next){
 
 
   router.get('/Account', function(req, res, next) {
-    userid=1;
     query1= `Select * from User where User.id = ${userid}`;
     console.log(query1);
     database.query(query1, function(err,result){
@@ -165,5 +165,28 @@ router.post('/Search_On', function(req,res,next){
     res.render('Search',{data:result});
   }) 
 })
+
+router.get('/RecipeWebsite', function(req, res, next){
+  R_ID = req.query.divId;
+  query1 = `Select  * from Recipe_ID where Recipe_ID = ${id};`;
+  database.query(query1, function(err,result){
+    if(err) throw err;
+    res.render('/RecipeWebsite',{data:result});
+  });
+});
+
+router.post('/Schedule_Recipe', function(req,res,next){
+  var MealType = req.body.MealType;
+  var Weekday = req.body.Weekday;
+  var Portion = req.body.Portion;
+  var Additonal_Comments = req.body.Allergy;
+  var date= req.body.Date;
+  query1 = `Insert into Recipe-User-Schedule-History values(${userid}, ${R_ID},${date},"${MealType},${Portion}, "${Additonal_Comments}" );`;
+  database.query(query1, function(err,result){
+    if(err) throw err;
+    res.send("Recipe Scheduled!");
+  });
+});
+
 
 module.exports = router;
