@@ -4,24 +4,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylesheets/Search.css">
 </head>
 <body>
     <div class="container">
-        <form action="/Search_On" class="search-bar">
+        <form action="/Search_On" method = "post" class="search-bar">
             <input type="text" name="Search_name" placeholder="Recipe Name">
             <button type="submit"><img src="images/search.png" alt=""></button>
         </form>
     </div>
-    <% if(session.data_exists) { %>
     <table>
         <% data.forEach(entry =>{ %>
         <tr class = "clickable" id="div<%= entry.id %>">
-            <td><a href='/Display?divId=<%= entry.id %>'><%= entry.name %></a></td>
+            <td><a href='/Display?divId=<%= entry.id %>'><%= entry.First_name %></a></td>
             <td><%= entry.age %></td>
         </tr>
-    <% }) %>
+        <% }) %>
     </table>
-    <% } %>
 </body>
 </html>

@@ -147,15 +147,18 @@ router.get('/delete_user', function(req, res,next){
 });
 
 router.get('/Search', function(req, res, next){
-  req.session.data_exists=false;
-  res.render('Search');
+  // querys = `Select * from login1;`;
+  //           database.query(querys, function(err,result){
+  //             if (err) throw err;
+  //             res.render('Search', {data:result})
+  //           });
+  res.render('Search',{data:[{}]});
 });
 
 router.post('/Search_On', function(req,res,next){
-  req.session.data_exists=True;
   var Searches = req.body.Search_name;
   console.log(Searches);
-  query1= `Select * from User where User.name = ${Searches}`;
+  query1= `Select * from user where user.First_name = "${Searches}"`;
   console.log(query1);
   database.query(query1, function(err,result){
     if(err) throw err;
